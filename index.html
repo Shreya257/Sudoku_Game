@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="sudoku.css">
+    <title>Sudoku</title>
+</head>
+<body>
+
+    <div class="start-modal" aria-modal="true">
+        <div class="modal-inner">
+            <h1 class="title">SUDOKU</h1>
+            <button type="button" class="play-button" onclick="init()">PLAY</button>
+        </div>
+    </div>
+
+    <div class="game-area">
+        <header>
+            <h1 class="title">SUDOKU</h1>
+        </header>
+        <section class="time">
+            <div class="button-area">
+                <div class="button pause" onclick="pause()"><i class="fas fa-pause"></i></div>
+                <div class="button play" onclick="play()"><i class="fas fa-play"></i></div>
+                <div class="button solve" onclick="solveSudoku()">Solve</div>
+                <button class="button restart">Restart</button>
+            </div>
+        
+            <h3 role="timer">00:00</h3>
+        </section>
+        
+        <main>
+            <div class="overlay"></div>
+
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+            
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+
+            <div class="box">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+            </div>
+        </main>
+    </div>
+    
+    <div class="end-modal" aria-modal="true">
+        <div class="modal-inner">
+            <h1 class="title">You Win</h1>
+
+            <div class="time">
+                <h3>Time Played</h3>
+                <h2 class="time-played">10:10</h2>
+            </div>
+
+            <button type="button" class="play-again-button" onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="Game.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

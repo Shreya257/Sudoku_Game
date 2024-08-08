@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #b9e3f6; /* Light sky blue background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png'); /* Fun background texture */
+}
+
+.game-area main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 500px;
+    height: 500px;
+    padding: 1rem;
+    background-color: #ffffff;
+    grid-gap: 10px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.game-area .overlay {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    border-radius: 15px;
+}
+
+.game-area .box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+
+.game-area .box .field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9c0c0; /* Light pink background */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
+    font-size: 2rem;
+    user-select: none;
+    border: 2px solid #ff8c8c; /* Border for better visibility */
+    color: black; /* Default font color */
+}
+
+.game-area .box .field.active {
+    cursor: auto;
+    background-color: #76c7c0; /* Light teal background */
+    border-color: #4a9c8d; /* Teal border */
+}
+
+.game-area .box .field:hover {
+    background-color: #f5a7a7; /* Slightly darker pink */
+    transform: scale(1.05); /* Slightly enlarges the field */
+    color: white; /* Font color on hover */
+}
+
+.game-area .title, .start-modal .title, .end-modal .title {
+    font-size: 4rem;
+    color: black; /* Default font color */
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 0;
+}
+
+.game-area .time {
+    background-color: #fff5e6; /* Light beige */
+    margin-bottom: 5px;
+    padding: 10px 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.game-area .time h3 {
+    color: black; /* Default font color */
+    margin: 0;
+    text-align: right;
+}
+
+.game-area .button-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.game-area .button-area .button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase; /* Capitalize text */
+    color: black; /* Default font color */
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    background-color: #ffe0e0; /* Light coral pink */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
+    margin: 0 5px;
+}
+
+.game-area .button-area .button:hover {
+    background-color: #ff4d4d; /* Darker coral pink */
+    transform: scale(1.1); /* Slightly enlarges the button */
+    color: white; /* Font color on hover */
+}
+
+.game-area .button.play {
+    display: none;
+}
+
+.game-area .button.solve, .game-area .button.restart, .game-area .button.pause {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase; /* Capitalize text */
+    color: black; /* Default font color */
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
+    margin: 0 5px;
+}
+
+.game-area .button.solve {
+    background-color: #ff7f7f; /* Light red */
+}
+
+.game-area .button.restart {
+    background-color: #ff7f7f; /* Light red */
+}
+
+.game-area .button.pause {
+    background-color: #ff7f7f; /* Light red */
+}
+
+.game-area .button.solve:hover, .game-area .button.restart:hover, .game-area .button.pause:hover {
+    background-color: #ff4d4d; /* Darker red */
+    color: white; /* Font color on hover */
+    transform: scale(1.1); /* Slightly enlarges the button */
+}
+
+.start-modal, .end-modal {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    z-index: 100;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.start-modal .title, .end-modal .title {
+    font-size: 6rem;
+    color: black; /* Default font color */
+}
+
+.start-modal .modal-inner, .end-modal .modal-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-modal .play-button, .end-modal .play-again-button, .button.restart {
+    padding: .5em 2em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: inherit;
+    border: none;
+    background-color: #ff7f7f; /* Light red */
+    color: black; /* Default font color */
+    letter-spacing: 4px;
+    box-shadow: 0 5px 0 #ff4d4d; /* Darker red */
+    cursor: pointer;
+    outline: none;
+    border-radius: 10px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
+    text-transform: uppercase; /* Capitalize text */
+}
+
+.start-modal .play-button:active, .end-modal .play-again-button:active, .button.restart:active {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+.end-modal {
+    display: none;
+}
+
+.end-modal .title {
+    color: black; /* Default font color */
+}
+
+.end-modal .time {
+    margin-bottom: 3rem;
+}
+
+.end-modal .time h3 {
+    margin: 0;
+}
+
+.end-modal .time-played {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+    color: black; /* Default font color */
+}
+
+.end-modal .play-again-button {
+    background-color: #ff6f61; /* Coral */
+    box-shadow: 0 5px 0 #ff4d4d; /* Darker coral */
+    color: black; /* Default font color */
+}
